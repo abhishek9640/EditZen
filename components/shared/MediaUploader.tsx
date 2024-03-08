@@ -69,20 +69,7 @@ const MediaUploader = ({
 
           {publicId ? (
             <>
-              <div className="cursor-pointer overflow-hidden rounded-[10px]">
-                <CldImage 
-                  width={getImageSize(type, image, "width")}
-                  height={getImageSize(type, image, "height")}
-                  src={publicId}
-                  alt="image"
-                  sizes={"(max-width: 767px) 100vw, 50vw"}
-                  placeholder={dataUrl as PlaceholderValue}
-                  className="media-uploader_cldImage"
-                />
-              </div>
-            </>
-          ): (
-            <div className="media-uploader_cta" onClick={() => open()}>
+              <div className="media-uploader_cta" onClick={() => open()}>
               <div className="media-uploader_cta-image">
                 <Image 
                   src="/assets/icons/add.svg"
@@ -91,8 +78,23 @@ const MediaUploader = ({
                   height={24}
                 />
               </div>
-                <p className="p-14-medium">Click here to upload image</p>
+              <p className="p-14-medium">Click here to upload image</p>
+              </div>
+            </>
+          ): (
+            <>
+            <div className="cursor-pointer overflow-hidden rounded-[10px]">
+              <CldImage 
+                width={getImageSize(type, image, "width")}
+                height={getImageSize(type, image, "height")}
+                src={publicId}
+                alt="image"
+                sizes={"(max-width: 767px) 100vw, 50vw"}
+                placeholder={dataUrl as PlaceholderValue}
+                className="media-uploader_cldImage"
+              />
             </div>
+          </>
           )}
         </div>
       )}
