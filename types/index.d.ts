@@ -136,3 +136,35 @@ declare type TransformedImageProps = {
   hasDownload?: boolean;
   setIsTransforming?: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+// ====== GEMINI AI TYPES
+declare type ImageAnalysisResult = {
+  description: string;
+  objects: string[];
+  colors: string[];
+  suggestedTransformations: string[];
+};
+
+declare type PromptSuggestion = {
+  label: string;
+  value: string;
+  suggestedColor?: string;
+  confidence: number;
+};
+
+declare type ChatMessage = {
+  role: "user" | "assistant";
+  content: string;
+  timestamp?: Date;
+};
+
+declare type ImageAnalysisProps = {
+  imageUrl: string | null;
+  onSuggestionClick?: (transformation: string) => void;
+};
+
+declare type SmartPromptSuggestionsProps = {
+  imageUrl: string | null;
+  transformationType: "remove" | "recolor";
+  onSuggestionClick: (prompt: string, color?: string) => void;
+};

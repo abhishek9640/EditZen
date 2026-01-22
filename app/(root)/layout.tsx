@@ -1,6 +1,7 @@
 import MobileNav from '@/components/shared/MobileNav'
 import Sidebar from '@/components/shared/Sidebar'
 import { Toaster } from '@/components/ui/toaster'
+import AIChatWidget from '@/components/shared/AIChatWidget'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,8 +14,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </div>
       </div>
-      
+
       <Toaster />
+      <AIChatWidget />
     </main>
   )
 }
